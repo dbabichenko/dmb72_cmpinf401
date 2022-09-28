@@ -32,11 +32,15 @@ public class Driver {
 		System.out.println(c.perimeter());
 		*/
 		
+		/*
 		Dice d1 = new Dice(4);
 		System.out.println(d1.getSides());
 		
 		Dice d2 = new Dice();
 		System.out.println(d2.getSides());
+		*/
+		
+		
 
 	}
 
