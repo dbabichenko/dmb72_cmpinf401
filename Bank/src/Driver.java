@@ -39,6 +39,9 @@ public class Driver {
 		
 		a.addOwner(u); // Set user to be the account's owner
 		
+		User accountOwner = a.getOwner();
+		accountOwner.getUserID();
+		
 		System.out.println("Owner ID: " + a.getOwner().getUserID());
 		
 		System.out.println("Balance: " + a.getBalance());
