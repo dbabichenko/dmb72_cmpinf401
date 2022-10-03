@@ -61,7 +61,7 @@ public class Transaction {
 	 * Getter for transaction amount
 	 * @return Transaction amount
 	 */
-	public double getAmount() {
+	public double getTransactionAmount() {
 		return amount;
 	}
 

@@ -10,7 +10,7 @@ public class User {
 	private String ssn;
 	private String firstName;
 	private String lastName;
-	private Account account;
+	private Account[] accounts;
 	
 	/**
 	 * This constructor creates a new user based on user-provided parameters:
@@ -24,6 +24,7 @@ public class User {
 		this.ssn = ssn;
 		this.firstName = firstName;
 		this.lastName = lastName;
+		this.accounts = new Account[5]; // Users can own up to five accounts
 	}
 
 	/**
@@ -79,7 +80,22 @@ public class User {
 	 * @param account An object of type Account, associates an account with a user.
 	 */
 	public void addAccount(Account account) {
-		this.account = account;
+		for(int i = 0; i<this.accounts.length; i++) {
+			// Check each element of the array 
+			// If it is not null, add account to that position
+			if(this.accounts[i] != null) {
+				this.accounts[i] = account;
+				break; // Once you added an account, exit the loop
+			}
+		}
+	}
+	
+	/**
+	 * Getter for account list.  Returns a list of accounts owned by user
+	 * @return An array of accounts owned by user
+	 */
+	public Account[] getAccounts() {
+		return this.accounts;
 	}
 	
 	

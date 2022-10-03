@@ -1,5 +1,7 @@
 
-import java.util.UUID;  
+import java.util.UUID;
+
+import javax.swing.JOptionPane;  
 
 /**
  * This class manages individual bank accounts
@@ -11,7 +13,12 @@ public class Account {
 	private String accountType;
 	private double balance;
 	private double interestRate;
-	private User owner;
+	
+	// Each account may have up to two owners
+	private User[] owners;
+	
+	// Each account may have up to 10 transactions
+	private Transaction[] transactions; 
 	
 	/**
 	 * This constructor for Account class generates a new account ID and 
@@ -24,6 +31,8 @@ public class Account {
 		this.accountType = accountType;
 		this.balance = 0;
 		this.interestRate = 0;
+		this.owners = new User[2]; // Initialize an array of type User with a length of 2
+		this.transactions = new Transaction[10]; // Initialize an array of type Transaction with a length of 10
 	}
 	
 	/**
@@ -38,6 +47,8 @@ public class Account {
 		this.accountType = accountType;
 		this.balance = 0;
 		this.interestRate = interestRate;
+		this.owners = new User[2]; // Initialize an array of type User with a length of 2
+		this.transactions = new Transaction[10]; // Initialize an array of type Transaction with a length of 10
 	}
 	
 	/**
@@ -59,11 +70,36 @@ public class Account {
 	}
 	
 	/**
+	 * Saves a transaction to a list of transactions
+	 * Note: pay attention to the visibility of this method - it is declared as "private"
+	 * @param t A transaction object
+	 */
+	private void storeTransaction(Transaction t) {
+		for(int i = 0; i<this.transactions.length; i++) {
+			// Check each element of the array 
+			// If it is not null, add transaction to that position
+			if(this.transactions[i] != null) {
+				this.transactions[i] = t;
+				break; // Once you added an transaction, exit the loop
+			}
+		}
+	}
+	
+	/**
 	 * Adds a new owner to an account.  Multiple owners are allowed.
 	 * @param owner An object of type User that denotes account owner
 	 */
 	public void addOwner(User owner) {
-		this.owner = owner;
+		if(owners[0]== null) {
+			owners[0] = owner; // First user to get added to account is stored at index 0
+		}
+		else if(owners[1] == null) {
+			owners[1] = owner; // Second user to get added to account is stored at index 1
+		}
+		else {
+			JOptionPane.showMessageDialog(null, "This account already has two owners!");
+			
+		}
 	}
 	
 
@@ -111,8 +147,8 @@ public class Account {
 	 * Getter for account owner
 	 * @return An object of type User that denotes account owner
 	 */
-	public User getOwner() {
-		return this.owner;
+	public User[] getOwner() {
+		return this.owners;
 	}
 	
 	
