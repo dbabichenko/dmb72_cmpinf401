@@ -43,6 +43,17 @@ public class Driver {
 		a.addOwner(u1); // Set user to be the account's owner
 		a.addOwner(u2); // Set user to be the account's co-owner
 		
+		System.out.println("Balance: " + a.getBalance());
+		a.deposit(20);
+		System.out.println("Balance: " + a.getBalance());
+		a.deposit(1000);
+		System.out.println("Balance: " + a.getBalance());
+		a.deposit(200);
+		System.out.println("Balance: " + a.getBalance());
+		a.withdraw(200);
+		System.out.println("Balance: " + a.getBalance());
+		
+		
 		/*
 		 * Class hierarchy for Account and Owner as follows:
 		 * 1. Account --> User
