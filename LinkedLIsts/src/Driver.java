@@ -6,7 +6,8 @@ public class Driver {
 		
 		ll.add("cat");
 		ll.add("dog");
-		ll.add("cow", 1);
+		ll.add("cow");
+		ll.add("hamster", 1);
 		
 		System.out.println(ll.getLinkedListAsString());
 
