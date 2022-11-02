@@ -32,6 +32,9 @@ public class Test {
 		catch (IOException ioe) {
 			ioe.printStackTrace();
 		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
 
 	}
 
