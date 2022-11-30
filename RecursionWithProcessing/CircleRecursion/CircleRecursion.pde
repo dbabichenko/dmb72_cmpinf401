@@ -12,7 +12,8 @@ void drawCircle(float x, float y, float radius) {
   noFill();
   ellipse(x, y, radius, radius);
   if(radius > 2) {
-    // drawCircle() calls itself twice, creating a branching effect. For every circle, a smaller circle is drawn to the left and the right.
+    // drawCircle() calls itself twice, creating a branching effect. 
+    // For every circle, a smaller circle is drawn to the left and the right.
     drawCircle(x + radius/2, y, radius/2);
     drawCircle(x - radius/2, y, radius/2);
  
